@@ -4,7 +4,7 @@ const Messages = {
     //generate message
     let $message = $('#message');
     let message = {
-      username: window.location.search.slice(10),
+      username: window.location.search.slice(10) || 'anonymous',
       text: $message.val(),
       roomname: RoomsView.$select[0].value
     }
