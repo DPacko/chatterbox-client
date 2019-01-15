@@ -24,8 +24,8 @@ describe('chatterbox', function() {
 
       it('should send the message along with the request as a stringified object', function(done) {
         var message = {
-          username: 'Mel Brooks',
-          text: 'It\'s good to be the king',
+          username: 'Peter Dawn',
+          text: 'wazzzzuppppp',
           roomname: 'lobby'
         };
 
@@ -38,8 +38,8 @@ describe('chatterbox', function() {
 
       it('should send the correct message along with the request', function(done) {
         var message = {
-          username: 'Mel Brooks',
-          text: 'It\'s good to be the king',
+          username: 'Peter Dawn',
+          text: 'wazzzzuppppp',
           roomname: 'lobby'
         };
 
@@ -67,12 +67,12 @@ describe('chatterbox', function() {
   describe('chatroom behavior', function() {
     it('should be able to add messages to the DOM', function() {
       var message = {
-        username: 'Mel Brooks',
-        text: 'Never underestimate the power of the Schwartz!',
+        username: 'PeterDawn',
+        text: 'wazzzzuppppp',
         roomname: 'lobby'
       };
       MessagesView.renderMessage(message);
-      expect($('#chats').children().length).to.equal(1);
+      expect($('#lobby').children().length).to.equal(1);
     });
 
     it('should be able to add rooms to the DOM', function() {
@@ -88,11 +88,11 @@ describe('chatterbox', function() {
 
       App.initialize();
       MessagesView.renderMessage({
-        username: 'Mel Brooks',
+        username: 'MelBrooks',
         text: 'I didn\'t get a harumph outa that guy.!',
         roomname: 'lobby'
       });
-      $('#chats').find('.username').trigger('click');
+      $('.chat').find('.username').trigger('click');
       expect(Friends.toggleStatus.called).to.be.true;
 
       Friends.toggleStatus.restore();
@@ -116,7 +116,7 @@ describe('chatterbox', function() {
 
       App.initialize();
       $('#message').val('Why so many Mel Brooks quotes?');
-      $('form .submit').trigger('submit');
+      $('form .submit').trigger('click');
       expect(Parse.create.called).to.be.true;
 
       Parse.create.restore();

@@ -4,6 +4,8 @@ var App = {
 
   username: 'anonymous',
 
+  userData: null,
+
   initialize: function() {
     App.username = window.location.search.substr(10);
 
@@ -20,7 +22,8 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
+      App.userData = data;
+      console.log(App.userData);
 
       callback();
     });
