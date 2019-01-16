@@ -36,7 +36,7 @@ var MessagesView = {
 
     $('#chats #' + roomname).prepend($message);
 
-    $('#chats:first').click(() => {
+    $('#chats #' + roomname + ' .chat .' + username + ':first').click(() => {
       console.log('click');
       Friends.toggleStatus(username);
     });
