@@ -30,9 +30,9 @@ const RoomsView = {
     if (children) {
       for (let child of children) {
         if (child.id === room) {
-          $('#' + child.id).show();
+          $('#chats #' + child.id).show();
         } else {
-          $('#' + child.id).hide();
+          $('#chats #' + child.id).hide();
         }
       }
     }

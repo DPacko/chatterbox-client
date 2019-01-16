@@ -7,9 +7,9 @@ var MessagesView = {
      // loop through object data
      let messages = data.results;
      // for each message object
-     for(let m of messages){
+     for(let i = messages.length - 1; i >= 0; i--){
        // pass it into render message
-       this.renderMessage(m);
+       this.renderMessage(messages[i]);
      }
   },
 
@@ -29,21 +29,18 @@ var MessagesView = {
       </div>
     `);
     // add the message to roomname div
-    console.log(roomname);
-    $('#chats #' + roomname).append($message);
-
     if(roomname !== 'lobby' && !Rooms.partyRooms[roomname]){
       Rooms.add(roomname);
+       $('#chats #' + roomname).hide();
     }
 
-    if (Friends.toggled[username]) {
-      Friends.toggleStatus(username);
-    }
+    $('#chats #' + roomname).prepend($message);
 
-    $('.' + username).click(() => {
-      Friends.toggled[username] = true;
+    $('#chats:first').click(() => {
+      console.log('click');
       Friends.toggleStatus(username);
     });
+
   }
 
 };
